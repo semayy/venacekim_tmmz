@@ -1,74 +1,116 @@
 <!-- ... existing code ... -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vena: {
+                            dark: '#1a1a1a',
+                            light: '#f9f8f6',
+                            accent: '#8c7a6b',
+                            green: '#2e4033'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f9f8f6;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Checkbox styles for mobile list */
+        input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            accent-color: #8c7a6b;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-vena-accent selection:text-white pb-12">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white border-b border-stone-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-serif tracking-widest text-vena-dark uppercase font-semibold">Vena Çekim Listesi</div>
+            <div class="hidden md:flex space-x-8 text-sm tracking-widest text-vena-dark">
+                <a href="#konsept" class="hover:text-vena-accent transition-colors">Konsept</a>
+                <a href="#akis" class="hover:text-vena-accent transition-colors">Akış</a>
+                <a href="#shotlist" class="hover:text-vena-accent transition-colors">Shot List</a>
+                <a href="#styling" class="hover:text-vena-accent transition-colors">Styling</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <header class="hero-bg min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
+    <header class="bg-vena-dark pt-32 pb-16 flex flex-col justify-center items-center text-center px-6 relative">
         <div class="max-w-3xl fade-in">
-            <span class="text-vena-accent tracking-[0.3em] text-sm uppercase mb-6 block font-semibold">Atakule Teras & İç Mekan Çekim Planı</span>
-            <h1 class="text-5xl md:text-7xl font-serif text-white mb-6 leading-tight">Mindful Mixology meets the Atakule terrace.</h1>
-            <p class="text-gray-300 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">
-                Mixology, Mocktail, ferah Limonatalar ve Milkshake'ler... İç mekandan terasa uzanan, Vena'nın zarif atmosferinde sadece fotoğrafa dayalı bir görsel hikaye.
+            <span class="text-vena-accent tracking-[0.3em] text-sm uppercase mb-4 block font-semibold">Mobil Kontrol Listesi</span>
+            <h1 class="text-4xl md:text-5xl font-serif text-white mb-6 leading-tight">Atakule Teras Çekim Planı</h1>
+            <p class="text-gray-300 text-base font-light mb-8 max-w-xl mx-auto">
+                Bu sayfa, sahada çekimleri hızlıca takip edip işaretleyebilmeniz için görselden arındırılmış, mobil dostu bir asistan formatında düzenlenmiştir.
             </p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center text-white/80 text-sm tracking-wider font-light">
+            <div class="flex flex-col md:flex-row gap-4 justify-center text-white/80 text-sm tracking-wider font-light">
 <!-- ... existing code ... -->
     <!-- 1. Çekim Konseptleri -->
-    <section id="konsept" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-3xl md:text-5xl font-serif text-vena-dark mb-4">Çekim Konseptleri</h2>
-            <div class="w-16 h-px bg-vena-accent mx-auto"></div>
+    <section id="konsept" class="py-16 px-6 max-w-7xl mx-auto">
+        <div class="text-left mb-10 fade-in">
+            <h2 class="text-2xl md:text-4xl font-serif text-vena-dark mb-4">1. Çekim Konseptleri</h2>
+            <div class="w-12 h-px bg-vena-accent"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Konsept 1 -->
-            <div class="fade-in group">
-                <div class="h-64 w-full mb-6 image-placeholder rounded-sm overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2000&auto=format&fit=crop');"></div>
-                    <div class="absolute inset-0 bg-black/30"></div>
-                    <span class="relative text-white/90"></span>
-                </div>
-                <h3 class="text-2xl font-serif text-vena-dark mb-3">01. Mindful Mixology</h3>
-                <p class="text-gray-500 font-light mb-4">"Premium kokteyl bar" hissiyatı. Bilinçli, rafine ve gündüz/akşam arası Vena deneyimi.</p>
-                <ul class="text-sm space-y-2 text-gray-600 font-light mb-4">
+            <div class="fade-in group bg-white p-6 border border-stone-200 rounded-sm shadow-sm">
+                <h3 class="text-xl font-serif text-vena-dark mb-3">01. Mindful Mixology</h3>
+                <p class="text-stone-500 font-light text-sm mb-4">"Premium kokteyl bar" hissiyatı. Bilinçli, rafine ve gündüz/akşam arası Vena deneyimi.</p>
+                <ul class="text-sm space-y-2 text-stone-600 font-light mb-2">
                     <li><span class="font-medium text-vena-dark">Ürünler:</span> Coffee Negroni, Classic Negroni, Orange Negroni, Gin Tonik, Gin Soda vb.</li>
                     <li><span class="font-medium text-vena-dark">Görsel Dil:</span> Portakal dilimi, kahve köpüğü, koyu ahşap/mermer zemin, şık bardaklar, ikindi güneşi.</li>
                 </ul>
             </div>
 
             <!-- Konsept 2 -->
-            <div class="fade-in group">
-                <div class="h-64 w-full mb-6 image-placeholder rounded-sm overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=2000&auto=format&fit=crop');"></div>
-                    <div class="absolute inset-0 bg-black/20"></div>
-                    <span class="relative text-white/90"></span>
-                </div>
-                <h3 class="text-2xl font-serif text-vena-dark mb-3">02. Mocktail, Limonata & Milkshake</h3>
-                <p class="text-gray-500 font-light mb-4">Canlı, genç, yazlık ve ferah. Parlak renkler, buzlu dokular ve iştah açıcı kareler.</p>
-                <ul class="text-sm space-y-2 text-gray-600 font-light mb-4">
+            <div class="fade-in group bg-white p-6 border border-stone-200 rounded-sm shadow-sm">
+                <h3 class="text-xl font-serif text-vena-dark mb-3">02. Mocktail, Limonata & Milkshake</h3>
+                <p class="text-stone-500 font-light text-sm mb-4">Canlı, genç, yazlık ve ferah. Parlak renkler, buzlu dokular ve iştah açıcı kareler.</p>
+                <ul class="text-sm space-y-2 text-stone-600 font-light mb-2">
                     <li><span class="font-medium text-vena-dark">Ürünler:</span> Cool Lime, Berry Hibiscus, Klasik/Çilekli Limonatalar, Çilekli/Çikolatalı Milkshake'ler.</li>
                     <li><span class="font-medium text-vena-dark">Görsel Dil:</span> Nane yaprağı, limon/lime dilimleri, camda buğulanma, canlı renk kontrastları.</li>
                 </ul>
             </div>
 
             <!-- Konsept 3 -->
-            <div class="fade-in group">
-                <div class="h-64 w-full mb-6 bg-vena-dark rounded-sm flex items-center justify-center p-8 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-60" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop');"></div>
-                    <p class="text-center text-white/90 font-serif italic text-xl relative z-10">"Atakule manzarasına karşı bir mola"</p>
-                </div>
-                <h3 class="text-2xl font-serif text-vena-dark mb-3">03. Teras & Dış Mekan Keyfi</h3>
-                <p class="text-gray-500 font-light mb-4">Vena Atakule'nin dış mekan atmosferini ürünlerle harmanlayan lifestyle fotoğraflar.</p>
-                <ul class="text-sm space-y-2 text-gray-600 font-light">
+            <div class="fade-in group bg-white p-6 border border-stone-200 rounded-sm shadow-sm">
+                <h3 class="text-xl font-serif text-vena-dark mb-3">03. Teras & Dış Mekan Keyfi</h3>
+                <p class="text-stone-500 font-light text-sm mb-4">Vena Atakule'nin dış mekan atmosferini ürünlerle harmanlayan lifestyle fotoğraflar.</p>
+                <ul class="text-sm space-y-2 text-stone-600 font-light">
                     <li><span class="font-medium text-vena-dark">Kare Dili:</span> Masada güneş gözlüğü, Vena takeaway bardakları, arkada flu Atakule/şehir manzarası.</li>
                 </ul>
             </div>
 
             <!-- Konsept 4 -->
-            <div class="fade-in group">
-                <div class="h-64 w-full mb-6 bg-vena-green rounded-sm flex items-center justify-center p-8 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-50" style="background-image: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=2000&auto=format&fit=crop');"></div>
-                    <p class="text-center text-white/90 font-serif italic text-xl relative z-10">"Şık iç mekan ve kusursuz servis"</p>
-                </div>
-                <h3 class="text-2xl font-serif text-vena-dark mb-3">04. İç Mekan & Servis Detayları</h3>
-                <p class="text-gray-500 font-light mb-4">Mağaza içi dekorasyon, bar bölümü ve garson servisinin anı donduran zarif kareleri.</p>
-                <ul class="text-sm space-y-2 text-gray-600 font-light">
+            <div class="fade-in group bg-white p-6 border border-stone-200 rounded-sm shadow-sm">
+                <h3 class="text-xl font-serif text-vena-dark mb-3">04. İç Mekan & Servis Detayları</h3>
+                <p class="text-stone-500 font-light text-sm mb-4">Mağaza içi dekorasyon, bar bölümü ve garson servisinin anı donduran zarif kareleri.</p>
+                <ul class="text-sm space-y-2 text-stone-600 font-light">
                     <li><span class="font-medium text-vena-dark">Kare Dili:</span> Tepside servis edilen ürünler, barda hazırlık anı, iç mekanın dokusuyla bütünleşen kompozisyonlar.</li>
                 </ul>
             </div>
@@ -76,154 +118,227 @@
     </section>
 
     <!-- 2. Çekim Akışı -->
-    <section id="akis" class="py-24 bg-vena-dark text-white px-6">
-        <div class="max-w-4xl mx-auto">
 <!-- ... existing code ... -->
-            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/20 before:to-transparent">
-                
-                <!-- Timeline Item -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-vena-dark text-vena-accent shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
-                        <span class="text-xs">00:00</span>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                        <h4 class="font-serif text-xl mb-1 text-vena-accent">Hazırlık & İç Mekan Styling</h4>
-                        <p class="text-sm text-gray-400 font-light">Bar önü ve iç mekan masaları ayarlanır. Kolay ulaşılabilir taze meyveler (limon, çilek) ve Vena karton bardakları çıkarılır.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-vena-dark text-vena-accent shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
-                        <span class="text-xs">00:30</span>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                        <h4 class="font-serif text-xl mb-1 text-vena-accent">Milkshake & Hassas Ürünler</h4>
-                        <p class="text-sm text-gray-400 font-light">Erimeden çekilmesi gereken Milkshake'ler iç mekanda çekilir. Ardından barda/tepside servis kareleri alınır.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-vena-dark text-vena-accent shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
-                        <span class="text-xs">01:15</span>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                        <h4 class="font-serif text-xl mb-1 text-vena-accent">Limonata & Mocktail Terasta</h4>
-                        <p class="text-sm text-gray-400 font-light">Soğuk limonatalar ve Yuzu, Hibiscus gibi mocktailler dış mekanda güneş ışığıyla ve damlacıklı (buzlu) şekilde fotoğraflanır.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-vena-dark text-vena-accent shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
-                        <span class="text-xs">02:15</span>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                        <h4 class="font-serif text-xl mb-1 text-vena-accent">Mindful Mixology Zamanı</h4>
-                        <p class="text-sm text-gray-400 font-light">Negroni serisi, Gin Tonik/Soda. Daha premium, koyu zeminli veya akşamüstü güneşiyle dramatik fotoğraflar.</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-vena-dark text-vena-accent shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow">
-                        <span class="text-xs">03:00</span>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded border border-white/10 bg-white/5 hover:bg-white/10 transition-colors">
-                        <h4 class="font-serif text-xl mb-1 text-vena-accent">Teras Lifestyle & Takeaway</h4>
-                        <p class="text-sm text-gray-400 font-light">Vena logolu takeaway bardaklarının masa üstü kompozisyonları, manzara arkalı lifestyle anı dondurma kareleri.</p>
-                    </div>
-                </div>
-
+    <!-- 3. Shot List -->
+    <section id="shotlist" class="py-16 px-6 max-w-7xl mx-auto">
+        <div class="text-left mb-10 fade-in flex justify-between items-end">
+            <div>
+                <h2 class="text-2xl md:text-4xl font-serif text-vena-dark mb-2">3. Shot List (Kontrol Listesi)</h2>
+                <div class="w-12 h-px bg-vena-accent"></div>
+                <p class="text-sm text-stone-500 mt-3 font-light">Tamamlanan kareleri kutucuklara tıklayarak işaretleyin.</p>
+            </div>
+            <div class="text-right">
+                <span id="global-counter" class="text-2xl font-serif text-vena-accent">0</span>
+                <span class="text-stone-400 text-sm">/ 23</span>
             </div>
         </div>
-    </section>
 
-    <!-- 3. Shot List -->
-    <section id="shotlist" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16 fade-in">
-            <h2 class="text-3xl md:text-5xl font-serif text-vena-dark mb-4">Net Shot List</h2>
-            <div class="w-16 h-px bg-vena-accent mx-auto"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Kategori A -->
-            <div class="bg-white p-8 border border-stone-200 shadow-sm fade-in">
-                <h3 class="text-xl font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2">A. Mixology & Mocktails</h3>
-                <ul class="text-sm font-light text-stone-600 space-y-3">
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Coffee Negroni:</strong> Espresso köpüğü yakın plan.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Orange/Classic Negroni:</strong> Turuncu ton, portakal kabuğu.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Cool Lime / Yuzu:</strong> Camda yoğun buğulanma, nane.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Berry Hibiscus:</strong> Meyveli, parlak kırmızı ton.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Mixology Set:</strong> 3'lü Negroni family shot.</li>
+            <div class="bg-white p-6 border border-stone-200 shadow-sm fade-in rounded-sm shot-category">
+                <h3 class="text-lg font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2 flex justify-between items-center">
+                    A. Mixology
+                    <span class="text-xs text-vena-accent font-sans px-2 py-1 bg-vena-light rounded-sm category-counter">0/5</span>
+                </h3>
+                <ul class="text-sm font-light text-stone-700 space-y-4">
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Coffee Negroni</strong> Espresso köpüğü yakın plan.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Orange/Classic Negroni</strong> Turuncu ton, portakal kabuğu.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Cool Lime / Yuzu</strong> Camda yoğun buğulanma, nane.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Berry Hibiscus</strong> Meyveli, parlak kırmızı ton.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Mixology Set</strong> 3'lü Negroni family shot.</span>
+                    </li>
                 </ul>
             </div>
 
             <!-- Kategori B -->
-            <div class="bg-white p-8 border border-stone-200 shadow-sm fade-in">
-                <h3 class="text-xl font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2">B. Limonata & Milkshake</h3>
-                <ul class="text-sm font-light text-stone-600 space-y-3">
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Klasik Limonata:</strong> Bol buzlu, taze limon dilimli ferah kare.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Çilekli/Özel Limonata:</strong> Renk geçişini gösteren net fotoğraf.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Milkshake:</strong> Krema/köpük detaylı, iştah açıcı formda.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Yaz Üçlüsü:</strong> 2 Limonata + 1 Milkshake masa kompozisyonu.</li>
+            <div class="bg-white p-6 border border-stone-200 shadow-sm fade-in rounded-sm shot-category">
+                <h3 class="text-lg font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2 flex justify-between items-center">
+                    B. Mocktail & Frozen Özel
+                    <span class="text-xs text-vena-accent font-sans px-2 py-1 bg-vena-light rounded-sm category-counter">0/10</span>
+                </h3>
+                <ul class="text-sm font-light text-stone-700 space-y-4">
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Yuzu Mint (Yeşil Çay & Chia)</strong> Üst Açı (Top View): Yüzeydeki chia tohumları ve nane yapraklarının net dokusu.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Sorrel Mist (Kuzu Kulağı)</strong> Göz Hizası (Eye Level): Bardak kenarında kuzu kulağı detayı, arkada flu teras bitkileri.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Yuzu Cranberry</strong> Aşağıdan Açı (Low Angle): Buzlar arası kızılcık rengi, üstte nane tacı, arka planda ferah gökyüzü.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Hibiscus</strong> Arkadan Aydınlatmalı (Backlit): Işığın içecekten geçip yakut rengini parlatarak şeffaflığı vurguladığı kare.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Berry Hibiscus</strong> 45 Derece Çapraz: Elde tutulurken hafif yukarıdan, masaya taze orman meyveleri serpilmiş styling.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Cool Lime</strong> Eğik Kadraj (Dutch Angle): Bardağın dışındaki buğulanmaya odaklı, enerjik ve ferahlık hissi veren yakın plan.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Strawberry Lime</strong> İki Elle Tutuş (Gövde Plan): Modelin Vena takeaway bardağını tuttuğu, çilek parçalarının görüldüğü lifestyle.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Dragon Bull (Ejder Meyvesi)</strong> Hareketi Dondurma (Action): İçeceğin karıştırıldığı an, pembe girdabın oluştuğu yandan çekim.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Raspberry Cream (Kaymak & Frambuaz)</strong> Tam Tepeden Makro (Overhead): Üstteki kremamsı doku ve frambuaz sosunun görsel kontrastı.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Popcorn Kiss</strong> Masa Üstü Lifestyle: Yanında birkaç patlamış mısır tanesi styling'i ile karamel tonlarının öne çıktığı iştah açıcı kare.</span>
+                    </li>
                 </ul>
             </div>
 
             <!-- Kategori C -->
-            <div class="bg-white p-8 border border-stone-200 shadow-sm fade-in">
-                <h3 class="text-xl font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2">C. Mekan & Servis</h3>
-                <ul class="text-sm font-light text-stone-600 space-y-3">
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">İç Mekan:</strong> Bar önünde şık ürün sunumu.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Servis Anı:</strong> Garsonun tepsisiyle masaya yaklaşırken.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Teras Lifestyle:</strong> Güneş gözlüğü, kitap, Vena bardağı yanyana.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span><strong class="font-medium text-stone-800">Takeaway:</strong> Teras manzarasına karşı elde tutulan markalı bardak.</li>
+            <div class="bg-white p-6 border border-stone-200 shadow-sm fade-in rounded-sm shot-category">
+                <h3 class="text-lg font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2 flex justify-between items-center">
+                    C. Mekan & Servis
+                    <span class="text-xs text-vena-accent font-sans px-2 py-1 bg-vena-light rounded-sm category-counter">0/4</span>
+                </h3>
+                <ul class="text-sm font-light text-stone-700 space-y-4">
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">İç Mekan</strong> Bar önünde şık ürün sunumu.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Servis Anı</strong> Garsonun tepsisiyle masaya yaklaşması.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Teras Lifestyle</strong> Gözlük, kitap, Vena bardağı yanyana.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all"><strong class="font-medium text-stone-900 block">Takeaway</strong> Teras manzarasına karşı elde markalı bardak.</span>
+                    </li>
                 </ul>
             </div>
 
             <!-- Kategori D -->
-            <div class="bg-white p-8 border border-stone-200 shadow-sm fade-in">
-                <h3 class="text-xl font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2">D. Aksiyon & Detay Kareleri</h3>
-                <ul class="text-sm font-light text-stone-600 space-y-3">
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span>Buzların sıvıya değdiği andaki hareket dondurması.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span>Bardağın dış yüzeyindeki su damlacıklarının (condensation) makro çekimi.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span>Kahve çekirdeklerinin veya nane yaprağının dokusal fotoğrafı.</li>
-                    <li><span class="w-1.5 h-1.5 rounded-full bg-vena-accent inline-block mr-2"></span>Menü sayfasının net, arka plandaki içeceğin flu olduğu odak oyunları.</li>
+            <div class="bg-white p-6 border border-stone-200 shadow-sm fade-in rounded-sm shot-category">
+                <h3 class="text-lg font-serif text-vena-dark mb-4 border-b border-stone-100 pb-2 flex justify-between items-center">
+                    D. Aksiyon & Detay
+                    <span class="text-xs text-vena-accent font-sans px-2 py-1 bg-vena-light rounded-sm category-counter">0/4</span>
+                </h3>
+                <ul class="text-sm font-light text-stone-700 space-y-4">
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all">Buzların sıvıya değdiği an (hareket dondurma).</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all">Bardağın dışındaki su damlacıklarının makro çekimi.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all">Kahve çekirdekleri / nane yaprağının dokusal fotoğrafı.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <input type="checkbox" class="mt-0.5 shot-checkbox">
+                        <span class="leading-snug transition-all">Menü sayfasının net, içeceğin flu olduğu odak oyunları.</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- 4. Kurallar ve Styling -->
-    <section id="styling" class="py-24 bg-vena-light border-y border-stone-200 px-6">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16">
 <!-- ... existing code ... -->
-            <div class="md:w-1/2 fade-in">
-                <span class="text-vena-accent tracking-widest text-sm uppercase mb-2 block">Sanat Yönetimi</span>
-                <h2 class="text-3xl font-serif text-vena-dark mb-6">Ulaşılabilir Styling Listesi</h2>
-                <div class="space-y-6 text-stone-600 font-light">
-                    <p class="leading-relaxed">
-                        <strong class="text-vena-dark block mb-1">Market/Manavdan Kolayca Bulunabilecekler:</strong>
-                        Taze bağ nane, sert limon ve lime, temiz kabuklu portakal, taze çilek, kavrulmuş kahve çekirdeği. (Ekstra pahalı/bulunmaz çiçeklere gerek yok, tazelik yeterli).
-                    </p>
-                    <p class="leading-relaxed">
-                        <strong class="text-vena-dark block mb-1">Masa Objeleri & Günlük Aksesuarlar:</strong>
-                        Müşterinin okuyacağı şık bir kitap veya dergi, standart model bir güneş gözlüğü, temiz bir kalem, düz renkli (bej/beyaz) kıyafet giymiş bir model eli.
-                    </p>
-                    <p class="leading-relaxed">
-                        <strong class="text-vena-dark block mb-1">Vena Demirbaşları (Önemli!):</strong>
-                        Vena logolu premium takeaway (karton/plastik) bardaklar, menü kartları, mağazanın kendi şık servis tepsileri. <span class="text-vena-green font-medium">(Kağıt peçete yığını kullanılmayacak).</span>
-                    </p>
-                    <p class="leading-relaxed">
-                        <strong class="text-vena-dark block mb-1">Zemin ve Işık:</strong>
-                        İç mekanda bar dokusu ve mağaza masaları. Terasta ise doğal gün ışığı; Limonatalar için aydınlık alanlar, Mixology için daha gölge/koyu alanlar.
-                    </p>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer class="bg-vena-dark py-12 text-center text-white/50 text-sm tracking-widest font-light mt-12">
+        <p class="mb-2 font-serif text-lg text-white">VENA COFFEE CO.</p>
+        <p>Atakule Teras Çekim Kılavuzu • Mobil Uygulama Modu</p>
+    </footer>
 
-        </div>
-    </section>
+    <!-- Script for Checklists and Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fade-in animation on scroll
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
 
-    <!-- 5. Teslimat -->
-<!-- ... existing code ... -->
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // Checkbox Logic for Mobile Shot List
+            const checkboxes = document.querySelectorAll('.shot-checkbox');
+            const globalCounter = document.getElementById('global-counter');
+            
+            function updateCounters() {
+                let totalChecked = 0;
+                
+                document.querySelectorAll('.shot-category').forEach(category => {
+                    const boxes = category.querySelectorAll('.shot-checkbox');
+                    const checkedBoxes = category.querySelectorAll('.shot-checkbox:checked');
+                    const counter = category.querySelector('.category-counter');
+                    
+                    totalChecked += checkedBoxes.length;
+                    counter.textContent = `${checkedBoxes.length}/${boxes.length}`;
+                    
+                    if (checkedBoxes.length === boxes.length) {
+                        counter.classList.add('bg-vena-accent', 'text-white');
+                        counter.classList.remove('bg-vena-light', 'text-vena-accent');
+                    } else {
+                        counter.classList.remove('bg-vena-accent', 'text-white');
+                        counter.classList.add('bg-vena-light', 'text-vena-accent');
+                    }
+                    
+                    // Strike-through effect for text when checked
+                    boxes.forEach(box => {
+                        const textSpan = box.nextElementSibling;
+                        if (box.checked) {
+                            textSpan.classList.add('opacity-40', 'line-through');
+                        } else {
+                            textSpan.classList.remove('opacity-40', 'line-through');
+                        }
+                    });
+                });
+                
+                globalCounter.textContent = totalChecked;
+            }
+
+            checkboxes.forEach(box => {
+                box.addEventListener('change', updateCounters);
+            });
+        });
+    </script>
+</body>
+</html>
